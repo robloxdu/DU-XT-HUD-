@@ -1,0 +1,148 @@
+getgenv().Key = '6296439386355328286546329754839375363739383653636383755K'
+
+getgenv().Setting = {
+
+    ["Hunt"] = {
+
+        ["Team"] = "Pirates",
+
+        ["Min"] = 0,
+
+        ["Max"] = 30000000,
+
+        ["Webhook"] = true, 
+
+        ["Url"] = "https://discord.com/chuoihud"
+
+    },
+
+    ["Skip"] = {
+
+        ["V4"] = true,
+
+        ["Fruit"] = true,
+
+        ["FruitList"] = {
+   
+            "ICE"
+
+            "Leopard",
+
+            "Venom",
+
+            "Dough",
+
+            "Portal"
+
+        }
+
+    },
+
+    ["Chat"] = {
+
+        ["Enabled"] = false,
+
+        ["List"] = {" "},
+
+    },
+
+    ["Click"] = {
+
+        ["AlwaysClick"] = false,
+
+        ["FastClick"] = false
+
+    },
+
+    ["Another"] = {
+
+        ["V3"] = true,
+
+        ["CustomHealth"] = true,
+
+        ["Health"] = 12000,
+
+        ["V4"] = true,
+
+        ["LockCamera"] = false,
+
+        ["FPSBoots"] = false,
+
+        ["WhiteScreen"] = false,
+
+        ["BypassTp"] = true
+
+    },
+
+    ["SafeHealth"] = {
+
+        ["Health"] = 2000,
+
+        ["HighY"] = 55500
+
+    },
+
+    ["Melee"] = {
+
+        ["Enable"] = true,
+
+        ["Delay"] = 1,
+
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0.25},
+
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["C"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["V"] = {["Enable"] = true, ["HoldTime"] = 0}
+
+    },
+
+    ["Fruit"] = {
+
+        ["Enable"] = true,
+
+        ["Delay"] = 0.1,
+
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["C"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["V"] = {["Enable"] = true, ["HoldTime"] = 1.30},
+
+        ["F"] = {["Enable"] = false, ["HoldTime"] = 0}
+
+    },
+
+    ["Sword"] = {
+
+        ["Enable"] = false,
+
+        ["Delay"] = 0.1,
+
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0}
+
+    },
+
+    ["Gun"] = {
+
+        ["Enable"] = false,
+
+        ["GunMode"] = false, 
+
+        ["Delay"] = 0.1,
+
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0},
+
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0}
+
+    }
+
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/robloxdu/APPLE/200adb9680b3d9dd1faa15ee6fa77789c4fdb6ca/Banana%20hub.json"))() 
+
