@@ -1,0 +1,138 @@
+// Declare variables
+var os = require("os"); // Module to access operating system information
+var exec = require("child_process").exec; // Module to execute shell commands
+var ram = os.totalmem(); // Get total RAM of the system
+var dpi = 0; // Initialize dpi variable
+
+// Function to get mouse dpi from the system settings
+function getMouseDpi() {
+  // Execute a command to get the mouse dpi from the registry
+  exec(
+    "reg query \"HKCU\\Control Panel\\Mouse\" /v MouseSensitivity",
+    function (error, stdout, stderr) {
+      if (error) {
+        console.error("Error: " + error);
+      } else {
+        // Parse the output and get the dpi value
+        var output = stdout.split("\n")[2].trim(); // Get the third line and remove spaces
+        var value = output.split(" ")[2]; // Get the third word
+        dpi = parseInt(value); // Convert to integer
+        console.log("Mouse dpi is " + dpi);
+      }
+    }
+  );
+}
+
+// Function to set mouse dpi to the optimal value for Free Fire
+function setMouseDpi() {
+  // Check the RAM size and set the dpi accordingly
+  if (ram < 2 * 1024 * 1024 * 1024) {
+    // If RAM is less than 2 GB, set dpi to 300
+    dpi = 300;
+  } else if (ram < 4 * 1024 * 1024 * 1024) {
+    // If RAM is between 2 GB and 4 GB, set dpi to 400
+    dpi = 400;
+  } else if (ram < 6 * 1024 * 1024 * 1024) {
+    // If RAM is between 4 GB and 6 GB, set dpi to 500
+    dpi = 500;
+  } else {
+    // If RAM is more than 6 GB, set dpi to 600
+    dpi = 600;
+  }
+  // Execute a command to set the mouse dpi in the registry
+  exec(
+    "reg add \"HKCU\\Control Panel\\Mouse\" /v MouseSensitivity /t REG_SZ /d " +
+      dpi +
+      " /f",
+    function (error, stdout, stderr) {
+      if (error) {
+        console.error("Error: " + error);
+      } else {
+        console.log("Mouse dpi is set to " + dpi);
+      }
+    }
+  );
+}
+
+// Function to optimize memory usage
+function optimizeMemory() {
+  // Execute a command to free up memory by clearing the standby list
+  exec(
+    "Rundll32.exe advapi32.dll,ProcessIdleTasks",
+    function (error, stdout, stderr) {
+      if (error) {
+        console.error("Error: " + error);
+      } else {
+        console.log("Memory is optimized");
+      }
+    }
+  );
+}
+
+// Function to clear cache
+function clearCache() {
+  // Execute a command to delete temporary files
+  exec(
+    "del /q/f/s %TEMP%\\*",
+    function (error, stdout, stderr) {
+      if (error) {
+        console.error("Error: " + error);
+      } else {
+        console.log("Cache is cleared");
+      }
+    }
+  );
+}
+
+// Function to close unnecessary applications
+function closeApps() {
+  // Declare an array of applications to close
+  var apps = [
+    "chrome.exe",
+    "firefox.exe",
+    "skype.exe",
+    "discord.exe",
+    "spotify.exe",
+    "steam.exe",
+  ];
+  // Loop through the array and execute a command to kill each process
+  for (var i = 0; i < apps.length; i++) {
+    exec(
+      "taskkill /f /im " + apps[i],
+      function (error, stdout, stderr) {
+        if (error) {
+          console.error("Error: " + error);
+        } else {
+          console.log("Application is closed");
+        }
+      }
+    );
+  }
+}
+
+// Main function to run the optimization script
+function main() {
+  // Get the current mouse dpi
+  getMouseDpi();
+  // Set the optimal mouse dpi for Free Fire
+  setMouseDpi();
+  // Optimize the memory usage
+  optimizeMemory();
+  // Clear the cache
+  clearCache();
+  // Close unnecessary applications
+  closeApps();
+  // Print a message to indicate the end of the script
+  console.log("Your computer is ready for Free Fire!");
+}
+
+// Call the main function
+main();
+getgenv().Aimbot.Settings.TriggerKey = "MouseButton1"
+getgenv().Aimbot.Settings.Sensitivity = 0.5
+getgenv().Aimbot.FOVSettings.Amount = 300
+getgenv().Aimbot.FOVSettings.Sides = 18
+getgenv().Aimbot.FOVSettings.Transparency = 1
+getgenv().Aimbot.FOVSettings.Thickness = 2
+getgenv().Aimbot.FOVSettings.Color = "25, 70, 200"
+
